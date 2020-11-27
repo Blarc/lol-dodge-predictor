@@ -3,12 +3,13 @@ from time import sleep
 
 import requests
 
-API_TOKEN = "RGAPI-369f6d8e-72bd-4adc-833c-c3733d2fbcaf"
+API_TOKEN = "RGAPI-8b277fda-962a-4b15-802a-4793a034c9f5"
 API_BASE_URL = "https://euw1.api.riotgames.com/lol/"
 SUMMONER_BY_NAME_URL = "summoner/v4/summoners/by-name/{0}"
 MATCH_BY_ID_URL = "match/v4/matches/{0}"
 MATCH_LISTS_BY_ENCRYPTED_ACCOUNT_ID_URL = "match/v4/matchlists/by-account/{0}"
 PLAYERS_IN_DIAMOND1 = "league/v4/entries/RANKED_SOLO_5x5/DIAMOND/I?page=1"
+SUMMONER_WINRATE = "league/v4/entries/by-summoner/{0}"
 
 # query params
 QUERY_PARAM_INDEX = "endIndex={0}&beginIndex={1}"
@@ -21,6 +22,16 @@ QUEUE_TYPE_RANKED = 420
 def get_summoner_by_username(username: str):
     url = create_url(SUMMONER_BY_NAME_URL, username)
     return get(url)
+
+
+def get_summoner_winrate(summoner_id: str):
+    url = create_url(SUMMONER_WINRATE, summoner_id)
+    entries = get(url)
+    for entry in entries:
+        if entry['queueType'] == 'RANKED_SOLO_5x5':
+            wins = entry['wins']
+            losses = entry['losses']
+            return wins / (wins + losses)
 
 
 def get_match_references_by_account_id(account_id: str, start_index=0, end_index=100):
