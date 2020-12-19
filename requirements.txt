@@ -1,0 +1,4 @@
+requests~=2.24.0
+pandas~=1.1.4
+cassiopeia~=4.0.14
+ipython~=7.18.1
