@@ -1,14 +1,12 @@
 import copy
 import json
-import pickle
-import pandas as pd
-import cassiopeia as cass
 
+import cassiopeia as cass
+import pandas as pd
 from IPython.display import clear_output
 from roleidentification import get_roles, pull_data
 
-
-NUMBER_OF_LINES = 217883
+NUMBER_OF_LINES = 108941
 champion_roles = pull_data()
 champions_mapper = {champion.id: champion.name for champion in cass.get_champions("EUW")}
 
@@ -151,6 +149,7 @@ with open('data/raw_data/match_all_merged_sorted.csv', encoding='utf8') as infil
         index += 1
 
 
+# 156344
 print(f'Number of matches: {len(matches)}')
 
 print('Saving to csv...')
