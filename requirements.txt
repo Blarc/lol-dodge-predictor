@@ -2,3 +2,6 @@ requests~=2.24.0
 pandas~=1.1.4
 cassiopeia~=4.0.14
 ipython~=7.18.1
+scikit-learn~=0.23.2
+matplotlib~=3.3.2
+numpy~=1.19.2
