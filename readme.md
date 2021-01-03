@@ -13,3 +13,7 @@ The repository contains the following folders:
 - `prepare_data.py` python program for processing the raw data
 - `time_comparison.ipynb` Jupyter Notebook file for comparing classifiers by their learning time and accuracy
 
+### Data
+
+The data set that was used for buliding and testing the models can be accessed [here](https://www.kaggle.com/gyejr95/league-of-legendslol-ranked-games-2020-ver1).
+
